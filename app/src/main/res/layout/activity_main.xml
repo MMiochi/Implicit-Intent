@@ -11,18 +11,21 @@
     <Button
         android:id="@+id/Button1"
         android:layout_width="wrap_content"
+        android:text="Strona internetowa"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:id="@+id/Button2"
         android:layout_width="wrap_content"
+        android:text="Numer telefonu"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:id="@+id/Button3"
         android:layout_width="wrap_content"
+        android:text="Wyślij email"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />
 

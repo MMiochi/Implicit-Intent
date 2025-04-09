@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         Button button3 = findViewById(R.id.Button3);
 
         button1.setOnClickListener(v->OpenWebPage("https://www.example.com"));
+        button2.setOnClickListener(v->DialPhoneNumber("911"));
+        button3.setOnClickListener(v->sendEmail("a@wp.pl","temat","tresc"));
+
     }
 
 
@@ -44,4 +47,29 @@ public class MainActivity extends AppCompatActivity {
             Log.e("ERROR","Brak aplikacji do obsługi intencji", e);
         }
     }
-}
+
+    private void DialPhoneNumber(String phoneNumber){
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+
+        try{
+            startActivity(intent);
+        }catch (Exception e){
+            Log.e("ERROR","Brak aplikacji do obsługi intencji", e);
+        }
+    }
+
+    private void sendEmail(String address, String subject, String body){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{address});
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+
+        try{
+            startActivity(intent);
+        }catch (Exception e){
+            Log.e("ERROR","Brak aplikacji do obsługi intencji", e);
+        }
+        }
+    }
